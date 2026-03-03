@@ -16,7 +16,7 @@ _start:
     mov rax,1               ; system call for write 
     mov rdi,1               ; file handle for stdout
     mov rsi,buf             ; address of output string
-    mov rdx,hello_str_len   ; size of output string 
+    mov rdx,buf_len         ; size of output string 
     syscall                 ; invoke operating system call 
 
     ; End the program
@@ -27,5 +27,6 @@ _start:
 section .data           ; start of initialized data segment
 
     buf db "xxxxxxxxxx",0xa     ; output string with newline
+	buf_len equ $-buf			; size of output string
 
 section .bss            ; start of uninitialized data segment 
